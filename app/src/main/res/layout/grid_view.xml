@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/navBar"
+        android:background="@color/colorPrimary">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="By ARTISTS"
+            android:textColor="@android:color/white"
+            android:id="@+id/byArtist"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="By Album"
+            android:textColor="@android:color/white"
+            android:id="@+id/byAlbum"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="By Song"
+            android:textColor="@android:color/white"
+            android:id="@+id/bySong"/>
+
+    </LinearLayout>
+<GridView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/gridList"
+    android:numColumns="2"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activityPadding"
+    android:paddingLeft="@dimen/activityPadding"
+    android:paddingRight="@dimen/activityPadding"
+    android:paddingTop="@dimen/activityPadding"
+    android:layout_below="@id/navBar">
+
+</GridView>
+</RelativeLayout>
