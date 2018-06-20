@@ -53,6 +53,17 @@
 
     </LinearLayout>
 
+    <ListView
+        android:id="@+id/linearList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/songControls"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activityPadding"
+        android:paddingLeft="@dimen/activityPadding"
+        android:paddingRight="@dimen/activityPadding"
+        android:paddingTop="@dimen/activityPadding"></ListView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
