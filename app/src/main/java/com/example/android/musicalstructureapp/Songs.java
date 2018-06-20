@@ -109,11 +109,11 @@ public class Songs extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                selection = trackList.get(position).getArtistName() + trackList.get(position).getAlbumName();
+                selection = trackList.get(position).getArtistName() + " " + trackList.get(position).getAlbumName();
 
                 Intent selectedSong = new Intent(Songs.this, MainActivity.class);
                 selectedSong.putExtra("selectedSong", selection );
-                Toast.makeText(Songs.this, "Now Playing " + selection, Toast.LENGTH_SHORT);
+                Toast.makeText(Songs.this, "Now Playing: " + selection, Toast.LENGTH_SHORT).show();
                 startActivity(selectedSong);
             }
         });
