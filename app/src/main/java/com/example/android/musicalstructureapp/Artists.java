@@ -51,7 +51,7 @@ public class Artists extends AppCompatActivity {
             }
         });
 
-        ArrayList<ByAlbumOrArtist> albumArtistInfo = new ArrayList<ByAlbumOrArtist>();
+        final ArrayList<ByAlbumOrArtist> albumArtistInfo = new ArrayList<ByAlbumOrArtist>();
 
         albumArtistInfo.add(new ByAlbumOrArtist("band 1",null, R.drawable.artist_1));
         albumArtistInfo.add(new ByAlbumOrArtist("band 2", null, R.drawable.artist_2));
@@ -74,32 +74,8 @@ public class Artists extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                switch (position){
-                    case 0: selection = "band 1";
-                        break;
-                    case 1: selection = "band 2";
-                        break;
-                    case 2: selection = "band 3";
-                        break;
-                    case 3: selection = "band 4";
-                        break;
-                    case 4: selection = "band 5";
-                        break;
-                    case 5: selection = "band 6";
-                        break;
-                    case 6: selection = "band 7";
-                        break;
-                    case 7: selection = "band 8";
-                        break;
-                    case 8: selection = "band 9";
-                        break;
-                    case 9: selection = "band 10";
-                        break;
-                    case 10: selection = "band 11";
-                        break;
-                    case 11: selection = "band 12";
-                        break;
-                }
+                selection = albumArtistInfo.get(position).getArtistName();
+
                 Intent artistSongs = new Intent(Artists.this, Songs.class);
                 artistSongs.putExtra("artistsNameFromArtists", selection );
 

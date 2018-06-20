@@ -1,14 +1,16 @@
 package com.example.android.musicalstructureapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Songs extends AppCompatActivity {
     String albumNameFromAlbums;
@@ -55,7 +57,7 @@ public class Songs extends AppCompatActivity {
             }
         });
 
-        ArrayList<BySongs> trackList = new ArrayList<BySongs>();
+        final ArrayList<BySongs> trackList = new ArrayList<BySongs>();
 
         trackList.add(new BySongs("track 1", "band 1", "band 1 album"));
         trackList.add(new BySongs("track 2", "band 1", "band 1 album"));
@@ -84,131 +86,19 @@ public class Songs extends AppCompatActivity {
         trackList.add(new BySongs("track 2", "band 12", "band 12 album"));
 
         if (albumNameFromAlbums != null){
-            switch (albumNameFromAlbums){
-                case "band 1 album":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 1", "band 1 album"));
-                    trackList.add(new BySongs("track 2", "band 1", "band 1 album"));
-                    trackList.add(new BySongs("track 3", "band 1", "band 1 album"));
-                    break;
-                case "band 2 album":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 2", "band 2 album"));
-                    trackList.add(new BySongs("track 2", "band 2", "band 2 album"));
-                    break;
-                case "band 3 album":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 3", "band 3 album"));
-                    trackList.add(new BySongs("track 2", "band 3", "band 3 album"));
-                    break;
-                case "band 4 album":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 4", "band 4 album"));
-                    trackList.add(new BySongs("track 2", "band 4", "band 4 album"));
-                    trackList.add(new BySongs("track 3", "band 4", "band 4 album"));
-                    break;
-                case "band 5 album":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 5", "band 5 album"));
-                    trackList.add(new BySongs("track 2", "band 5", "band 5 album"));
-                    break;
-                case "band 6 album":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 6", "band 6 album"));
-                    trackList.add(new BySongs("track 2", "band 6", "band 6 album"));
-                    break;
-                case "band 7 album":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 7", "band 7 album"));
-                    trackList.add(new BySongs("track 2", "band 7", "band 7 album"));
-                    break;
-                case "band 8 album":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 8", "band 8 album"));
-                case "band 9 album":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 9", "band 9 album"));
-                    trackList.add(new BySongs("track 2", "band 9", "band 9 album"));
-                    break;
-                case "band 10 album":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 10", "band 10 album"));
-                    trackList.add(new BySongs("track 2", "band 10", "band 10 album"));
-                    break;
-                case "band 11 album":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 11", "band 11 album"));
-                    trackList.add(new BySongs("track 2", "band 11", "band 11 album"));
-                    break;
-                case "band 12 album":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 12", "band 12 album"));
-                    trackList.add(new BySongs("track 2", "band 12", "band 12 album"));
-                    break;
+            Iterator<BySongs> delete = trackList.iterator();
+            while (delete.hasNext()) {
+                if (!delete.next().getAlbumName().equals(albumNameFromAlbums)) {
+                    delete.remove();
+                }
             }
         }
         else if (artistNameFromArtists != null) {
-            switch (artistNameFromArtists) {
-                case "band 1":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 1", "band 1 album"));
-                    trackList.add(new BySongs("track 2", "band 1", "band 1 album"));
-                    trackList.add(new BySongs("track 3", "band 1", "band 1 album"));
-                    break;
-                case "band 2":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 2", "band 2 album"));
-                    trackList.add(new BySongs("track 2", "band 2", "band 2 album"));
-                    break;
-                case "band 3":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 3", "band 3 album"));
-                    trackList.add(new BySongs("track 2", "band 3", "band 3 album"));
-                    break;
-                case "band 4":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 4", "band 4 album"));
-                    trackList.add(new BySongs("track 2", "band 4", "band 4 album"));
-                    trackList.add(new BySongs("track 3", "band 4", "band 4 album"));
-                    break;
-                case "band 5":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 5", "band 5 album"));
-                    trackList.add(new BySongs("track 2", "band 5", "band 5 album"));
-                    break;
-                case "band 6":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 6", "band 6 album"));
-                    trackList.add(new BySongs("track 2", "band 6", "band 6 album"));
-                    break;
-                case "band 7":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 7", "band 7 album"));
-                    trackList.add(new BySongs("track 2", "band 7", "band 7 album"));
-                    break;
-                case "band 8":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 8", "band 8 album"));
-                case "band 9":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 9", "band 9 album"));
-                    trackList.add(new BySongs("track 2", "band 9", "band 9 album"));
-                    break;
-                case "band 10":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 10", "band 10 album"));
-                    trackList.add(new BySongs("track 2", "band 10", "band 10 album"));
-                    break;
-                case "band 11":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 11", "band 11 album"));
-                    trackList.add(new BySongs("track 2", "band 11", "band 11 album"));
-                    break;
-                case "band 12":
-                    trackList.removeAll(trackList);
-                    trackList.add(new BySongs("track 1", "band 12", "band 12 album"));
-                    trackList.add(new BySongs("track 2", "band 12", "band 12 album"));
-                    break;
+            Iterator<BySongs> delete = trackList.iterator();
+            while (delete.hasNext()) {
+                if (!delete.next().getArtistName().equals(artistNameFromArtists)) {
+                    delete.remove();
+                }
             }
         }
         BySongsAdapter songsAdapter = new BySongsAdapter(this, trackList);
@@ -219,35 +109,11 @@ public class Songs extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                switch (position){
-                    case 0: selection = "band 1 track 1";
-                        break;
-                    case 1: selection = "band 1 track 2";
-                        break;
-                    case 2: selection = "band 1 track 3";
-                        break;
-                    case 3: selection = "band 2 track 1";
-                        break;
-                    case 4: selection = "band 2 track 2";
-                        break;
-                    case 5: selection = "band 3 track 1";
-                        break;
-                    case 6: selection = "band 3 track 2";
-                        break;
-                    case 7: selection = "band 4 track 1";
-                        break;
-                    case 8: selection = "band 4 track 2";
-                        break;
-                    case 9: selection = "band 4 track 3";
-                        break;
-                    case 10: selection = "band 5 track 1";
-                        break;
-                    case 11: selection = "band 5 track 2";
-                        break;
-                }
+                selection = trackList.get(position).getArtistName() + trackList.get(position).getAlbumName();
+
                 Intent selectedSong = new Intent(Songs.this, MainActivity.class);
                 selectedSong.putExtra("selectedSong", selection );
-
+                Toast.makeText(Songs.this, "Now Playing " + selection, Toast.LENGTH_SHORT);
                 startActivity(selectedSong);
             }
         });

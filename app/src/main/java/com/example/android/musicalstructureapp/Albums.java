@@ -72,32 +72,7 @@ public class Albums extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                switch (position){
-                    case 0: selection = "band 1 album";
-                        break;
-                    case 1: selection = "band 2 album";
-                        break;
-                    case 2: selection = "band 3 album";
-                        break;
-                    case 3: selection = "band 4 album";
-                        break;
-                    case 4: selection = "band 5 album";
-                        break;
-                    case 5: selection = "band 6 album";
-                        break;
-                    case 6: selection = "band 7 album";
-                        break;
-                    case 7: selection = "band 8 album";
-                        break;
-                    case 8: selection = "band 9 album";
-                        break;
-                    case 9: selection = "band 10 album";
-                        break;
-                    case 10: selection = "band 11 album";
-                        break;
-                    case 11: selection = "band 12 album";
-                        break;
-                }
+                selection = albumArtistInfo.get(position).getAlbumName();
                 Intent albumSongs = new Intent(Albums.this, Songs.class);
                 albumSongs.putExtra("albumNameFromAlbums", selection );
 
