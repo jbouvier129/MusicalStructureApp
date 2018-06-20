@@ -6,11 +6,13 @@ public class BySongs {
     private String mSongName;
     private String mArtistName;
     private String mAlbumName;
+    private String mAlbumImage;
 
-    public BySongs(String songName, String artistName, String albumName){
+    public BySongs(String songName, String artistName, String albumName, String albumImage) {
             mSongName = songName;
             mArtistName = artistName;
             mAlbumName = albumName;
+        mAlbumImage = albumImage;
         }
 
         public String getSongName(){
@@ -24,4 +26,8 @@ public class BySongs {
         public String getAlbumName(){
             return mAlbumName;
         }
+
+    public String getmAlbumImage() {
+        return mAlbumImage;
+    }
 }

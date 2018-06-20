@@ -58,31 +58,31 @@ public class Songs extends AppCompatActivity {
 
         final ArrayList<BySongs> trackList = new ArrayList<BySongs>();
 
-        trackList.add(new BySongs("track 1", "band 1", "band 1 album"));
-        trackList.add(new BySongs("track 2", "band 1", "band 1 album"));
-        trackList.add(new BySongs("track 3", "band 1", "band 1 album"));
-        trackList.add(new BySongs("track 1", "band 2", "band 2 album"));
-        trackList.add(new BySongs("track 2", "band 2", "band 2 album"));
-        trackList.add(new BySongs("track 1", "band 3", "band 3 album"));
-        trackList.add(new BySongs("track 2", "band 3", "band 3 album"));
-        trackList.add(new BySongs("track 1", "band 4", "band 4 album"));
-        trackList.add(new BySongs("track 2", "band 4", "band 4 album"));
-        trackList.add(new BySongs("track 3", "band 4", "band 4 album"));
-        trackList.add(new BySongs("track 1", "band 5", "band 5 album"));
-        trackList.add(new BySongs("track 2", "band 5", "band 5 album"));
-        trackList.add(new BySongs("track 1", "band 6", "band 6 album"));
-        trackList.add(new BySongs("track 2", "band 6", "band 6 album"));
-        trackList.add(new BySongs("track 1", "band 7", "band 7 album"));
-        trackList.add(new BySongs("track 2", "band 7", "band 7 album"));
-        trackList.add(new BySongs("track 1", "band 8", "band 8 album"));
-        trackList.add(new BySongs("track 1", "band 9", "band 9 album"));
-        trackList.add(new BySongs("track 2", "band 9", "band 9 album"));
-        trackList.add(new BySongs("track 1", "band 10", "band 10 album"));
-        trackList.add(new BySongs("track 2", "band 10", "band 10 album"));
-        trackList.add(new BySongs("track 1", "band 11", "band 11 album"));
-        trackList.add(new BySongs("track 2", "band 11", "band 11 album"));
-        trackList.add(new BySongs("track 1", "band 12", "band 12 album"));
-        trackList.add(new BySongs("track 2", "band 12", "band 12 album"));
+        trackList.add(new BySongs("track 1", "band 1", "band 1 album", "artist_1_album"));
+        trackList.add(new BySongs("track 2", "band 1", "band 1 album", "artist_1_album"));
+        trackList.add(new BySongs("track 3", "band 1", "band 1 album", "artist_1_album"));
+        trackList.add(new BySongs("track 1", "band 2", "band 2 album", "artist_2_album"));
+        trackList.add(new BySongs("track 2", "band 2", "band 2 album", "artist_2_album"));
+        trackList.add(new BySongs("track 1", "band 3", "band 3 album", "artist_3_album"));
+        trackList.add(new BySongs("track 2", "band 3", "band 3 album", "artist_3_album"));
+        trackList.add(new BySongs("track 1", "band 4", "band 4 album", "artist_4_album"));
+        trackList.add(new BySongs("track 2", "band 4", "band 4 album", "artist_4_album"));
+        trackList.add(new BySongs("track 3", "band 4", "band 4 album", "artist_4_album"));
+        trackList.add(new BySongs("track 1", "band 5", "band 5 album", "artist_5_album"));
+        trackList.add(new BySongs("track 2", "band 5", "band 5 album", "artist_5_album"));
+        trackList.add(new BySongs("track 1", "band 6", "band 6 album", "artist_6_album"));
+        trackList.add(new BySongs("track 2", "band 6", "band 6 album", "artist_6_album"));
+        trackList.add(new BySongs("track 1", "band 7", "band 7 album", "artist_7_album"));
+        trackList.add(new BySongs("track 2", "band 7", "band 7 album", "artist_7_album"));
+        trackList.add(new BySongs("track 1", "band 8", "band 8 album", "artist_8_album"));
+        trackList.add(new BySongs("track 1", "band 9", "band 9 album", "artist_9_album"));
+        trackList.add(new BySongs("track 2", "band 9", "band 9 album", "artist_9_album"));
+        trackList.add(new BySongs("track 1", "band 10", "band 10 album", "artist_10_album"));
+        trackList.add(new BySongs("track 2", "band 10", "band 10 album", "artist_10_album"));
+        trackList.add(new BySongs("track 1", "band 11", "band 11 album", "artist_11_album"));
+        trackList.add(new BySongs("track 2", "band 11", "band 11 album", "artist_11_album"));
+        trackList.add(new BySongs("track 1", "band 12", "band 12 album", "artist_12_album"));
+        trackList.add(new BySongs("track 2", "band 12", "band 12 album", "artist_12_album"));
 
         if (albumNameFromAlbums != null){
             Iterator<BySongs> delete = trackList.iterator();
@@ -111,12 +111,16 @@ public class Songs extends AppCompatActivity {
                 String artistSelection = trackList.get(position).getArtistName();
                 String albumSelection = trackList.get(position).getAlbumName();
                 String songSelection = trackList.get(position).getSongName();
+                String albumCover = trackList.get(position).getmAlbumImage();
+                boolean isPlaying = true;
 
                 Intent selectedSong = new Intent(Songs.this, MainActivity.class);
                 selectedSong.putExtra("selectedSong", songSelection);
                 selectedSong.putExtra("fromAlbum", albumSelection);
                 selectedSong.putExtra("byArtist", artistSelection);
-                Toast.makeText(Songs.this, "Now Playing: " + selectedSong + " by: " + artistSelection, Toast.LENGTH_SHORT).show();
+                selectedSong.putExtra("albumImage", albumCover);
+                selectedSong.putExtra("isPlaying", isPlaying);
+                Toast.makeText(Songs.this, "Now Playing: " + songSelection + " by: " + artistSelection, Toast.LENGTH_SHORT).show();
                 startActivity(selectedSong);
             }
         });
