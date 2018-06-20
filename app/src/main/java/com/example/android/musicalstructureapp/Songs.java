@@ -15,7 +15,6 @@ import java.util.Iterator;
 public class Songs extends AppCompatActivity {
     String albumNameFromAlbums;
     String artistNameFromArtists;
-    String selection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,11 +108,15 @@ public class Songs extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                selection = trackList.get(position).getArtistName() + " " + trackList.get(position).getAlbumName();
+                String artistSelection = trackList.get(position).getArtistName();
+                String albumSelection = trackList.get(position).getAlbumName();
+                String songSelection = trackList.get(position).getSongName();
 
                 Intent selectedSong = new Intent(Songs.this, MainActivity.class);
-                selectedSong.putExtra("selectedSong", selection );
-                Toast.makeText(Songs.this, "Now Playing: " + selection, Toast.LENGTH_SHORT).show();
+                selectedSong.putExtra("selectedSong", songSelection);
+                selectedSong.putExtra("fromAlbum", albumSelection);
+                selectedSong.putExtra("byArtist", artistSelection);
+                Toast.makeText(Songs.this, "Now Playing: " + selectedSong + " by: " + artistSelection, Toast.LENGTH_SHORT).show();
                 startActivity(selectedSong);
             }
         });
