@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // intent to open the songs activity
-                Intent bySongIntent = new Intent(MainActivity.this, Songs.class);
+                Intent bySongIntent = new Intent(MainActivity.this, SongsActivity.class);
 
                 // Start songs
                 startActivity(bySongIntent);
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 //used to insure the user selects a song
                 else {
                     Toast.makeText(MainActivity.this, "Please select a song", Toast.LENGTH_SHORT).show();
-                    Intent errorCatch = new Intent(MainActivity.this, Songs.class);
+                    Intent errorCatch = new Intent(MainActivity.this, SongsActivity.class);
                     startActivity(errorCatch);
                 }
 

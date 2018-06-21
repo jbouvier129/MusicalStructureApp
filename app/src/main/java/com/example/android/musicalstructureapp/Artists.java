@@ -46,7 +46,7 @@ public class Artists extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // intent to go to songs activity
-                Intent bySongIntent = new Intent(Artists.this, Songs.class);
+                Intent bySongIntent = new Intent(Artists.this, SongsActivity.class);
 
                 // Start songs
                 startActivity(bySongIntent);
@@ -84,7 +84,7 @@ public class Artists extends AppCompatActivity {
                 selection = albumArtistInfo.get(position).getArtistName();
 
                 //intent to call songs activity and pass it the artist parameter
-                Intent artistSongs = new Intent(Artists.this, Songs.class);
+                Intent artistSongs = new Intent(Artists.this, SongsActivity.class);
                 artistSongs.putExtra("artistsNameFromArtists", selection);
 
                 //start songs

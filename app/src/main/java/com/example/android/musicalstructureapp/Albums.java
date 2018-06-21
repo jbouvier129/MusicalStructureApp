@@ -46,7 +46,7 @@ public class Albums extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // intent to move to selected activity
-                Intent bySongIntent = new Intent(Albums.this, Songs.class);
+                Intent bySongIntent = new Intent(Albums.this, SongsActivity.class);
 
                 // Start songs activity
                 startActivity(bySongIntent);
@@ -85,7 +85,7 @@ public class Albums extends AppCompatActivity {
                 selection = albumArtistInfo.get(position).getAlbumName();
 
                 //starts an intent to go to the songs for the selected album
-                Intent albumSongs = new Intent(Albums.this, Songs.class);
+                Intent albumSongs = new Intent(Albums.this, SongsActivity.class);
                 albumSongs.putExtra("albumNameFromAlbums", selection);
 
                 //starts songs activity passing selected album information

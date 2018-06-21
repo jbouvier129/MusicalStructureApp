@@ -12,7 +12,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Songs extends AppCompatActivity {
+public class SongsActivity extends AppCompatActivity {
     //variables from other activities
     String albumNameFromAlbums;
     String artistNameFromArtists;
@@ -35,7 +35,7 @@ public class Songs extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // intent to launch the artists activity
-                Intent byArtistIntent = new Intent(Songs.this, Artists.class);
+                Intent byArtistIntent = new Intent(SongsActivity.this, Artists.class);
 
                 // Start artists
                 startActivity(byArtistIntent);
@@ -51,7 +51,7 @@ public class Songs extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // intent to launch the albums activity
-                Intent byAlbumIntent = new Intent(Songs.this, Albums.class);
+                Intent byAlbumIntent = new Intent(SongsActivity.this, Albums.class);
 
                 // Start albums
                 startActivity(byAlbumIntent);
@@ -124,13 +124,13 @@ public class Songs extends AppCompatActivity {
                 String albumCover = trackList.get(position).getAlbumImage();
                 boolean isPlaying = true;
 
-                Intent selectedSong = new Intent(Songs.this, MainActivity.class);
+                Intent selectedSong = new Intent(SongsActivity.this, MainActivity.class);
                 selectedSong.putExtra("selectedSong", songSelection);
                 selectedSong.putExtra("fromAlbum", albumSelection);
                 selectedSong.putExtra("byArtist", artistSelection);
                 selectedSong.putExtra("albumImage", albumCover);
                 selectedSong.putExtra("isPlaying", isPlaying);
-                Toast.makeText(Songs.this, "Now Playing: " + songSelection + " by: " + artistSelection, Toast.LENGTH_SHORT).show();
+                Toast.makeText(SongsActivity.this, "Now Playing: " + songSelection + " by: " + artistSelection, Toast.LENGTH_SHORT).show();
                 startActivity(selectedSong);
             }
         });
