@@ -10,7 +10,7 @@ import android.widget.GridView;
 
 import java.util.ArrayList;
 
-public class Albums extends AppCompatActivity {
+public class AlbumsActivity extends AppCompatActivity {
     //variable to hold the value of the function to determine album selection
     String selection;
 
@@ -30,7 +30,7 @@ public class Albums extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // intent to move to selected activity
-                Intent byArtistIntent = new Intent(Albums.this, Artists.class);
+                Intent byArtistIntent = new Intent(AlbumsActivity.this, ArtistsActivity.class);
 
                 // Start artists activity
                 startActivity(byArtistIntent);
@@ -46,7 +46,7 @@ public class Albums extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // intent to move to selected activity
-                Intent bySongIntent = new Intent(Albums.this, SongsActivity.class);
+                Intent bySongIntent = new Intent(AlbumsActivity.this, SongsActivity.class);
 
                 // Start songs activity
                 startActivity(bySongIntent);
@@ -85,7 +85,7 @@ public class Albums extends AppCompatActivity {
                 selection = albumArtistInfo.get(position).getAlbumName();
 
                 //starts an intent to go to the songs for the selected album
-                Intent albumSongs = new Intent(Albums.this, SongsActivity.class);
+                Intent albumSongs = new Intent(AlbumsActivity.this, SongsActivity.class);
                 albumSongs.putExtra("albumNameFromAlbums", selection);
 
                 //starts songs activity passing selected album information

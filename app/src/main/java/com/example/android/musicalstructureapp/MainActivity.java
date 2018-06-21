@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // intent to open the artists activity
-                Intent byArtistIntent = new Intent(MainActivity.this, Artists.class);
+                Intent byArtistIntent = new Intent(MainActivity.this, ArtistsActivity.class);
 
                 // Starts artists
                 startActivity(byArtistIntent);
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // intent to start the albums activity
-                Intent byAlbumIntent = new Intent(MainActivity.this, Albums.class);
+                Intent byAlbumIntent = new Intent(MainActivity.this, AlbumsActivity.class);
 
                 // Starts albums
                 startActivity(byAlbumIntent);

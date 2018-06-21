@@ -10,7 +10,7 @@ import android.widget.GridView;
 
 import java.util.ArrayList;
 
-public class Artists extends AppCompatActivity {
+public class ArtistsActivity extends AppCompatActivity {
 
     //variable to hold the value of the function used to determine the artist at the selected grid item
     String selection;
@@ -30,7 +30,7 @@ public class Artists extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // intent to go to albums activity
-                Intent byAlbumIntent = new Intent(Artists.this, Albums.class);
+                Intent byAlbumIntent = new Intent(ArtistsActivity.this, AlbumsActivity.class);
 
                 // Start albums activity
                 startActivity(byAlbumIntent);
@@ -46,7 +46,7 @@ public class Artists extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // intent to go to songs activity
-                Intent bySongIntent = new Intent(Artists.this, SongsActivity.class);
+                Intent bySongIntent = new Intent(ArtistsActivity.this, SongsActivity.class);
 
                 // Start songs
                 startActivity(bySongIntent);
@@ -84,7 +84,7 @@ public class Artists extends AppCompatActivity {
                 selection = albumArtistInfo.get(position).getArtistName();
 
                 //intent to call songs activity and pass it the artist parameter
-                Intent artistSongs = new Intent(Artists.this, SongsActivity.class);
+                Intent artistSongs = new Intent(ArtistsActivity.this, SongsActivity.class);
                 artistSongs.putExtra("artistsNameFromArtists", selection);
 
                 //start songs
