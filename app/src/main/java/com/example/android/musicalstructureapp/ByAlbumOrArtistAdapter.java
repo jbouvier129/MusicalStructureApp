@@ -1,5 +1,6 @@
 package com.example.android.musicalstructureapp;
-
+//adapter to populate the grid views
+//the majority of this code was repurposed from the miwok work in the lesson. General informative comments were left alone
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -18,7 +19,7 @@ public class ByAlbumOrArtistAdapter extends ArrayAdapter<ByAlbumOrArtist> {
         // the second argument is used when the ArrayAdapter is populating a single TextView.
         // Because this is a custom adapter for two TextViews and an ImageView, the adapter is not
         // going to use this second argument, so it can be any value. Here, we used 0.
-        super(context, 0 , albumArtist);
+        super(context, 0, albumArtist);
     }
 
     @NonNull
@@ -26,30 +27,27 @@ public class ByAlbumOrArtistAdapter extends ArrayAdapter<ByAlbumOrArtist> {
     public View getView(int position, View convertView, ViewGroup parent) {
         // Check if the existing view is being reused, otherwise inflate the view
         View gridItemView = convertView;
-        if(gridItemView == null) {
+        if (gridItemView == null) {
             gridItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.grid_item_layout, parent, false);
         }
 
-        // Get the {@link AndroidFlavor} object located at this position in the list
+        // Get the artist located at this position in the list
         ByAlbumOrArtist currentAlbumArtists = getItem(position);
 
-        // Find the TextView in the list_item.xml layout with the ID version_name
+        // Find albumArtist ImageView
         ImageView albumArtistImageView = gridItemView.findViewById(R.id.grid_item_image);
-        // Get the version name from the current AndroidFlavor object and
-        // set this text on the name TextView
+        // set text equal to the ImageView at specified position
         albumArtistImageView.setImageResource(currentAlbumArtists.getAlbumArtistImage());
 
-        // Find the TextView in the list_item.xml layout with the ID version_number
+        // Find album TextView
         TextView albumTextView = gridItemView.findViewById(R.id.grid_item_text_view);
-        // Get the version number from the current AndroidFlavor object and
-        // set this text on the number TextView
+        // set textview equal to album name if applicable
         albumTextView.setText(currentAlbumArtists.getAlbumName());
 
-        // Find the TextView in the list_item.xml layout with the ID version_number
+        // Find artist text view
         TextView artistTextView = gridItemView.findViewById(R.id.grid_item_text_view2);
-        // Get the version number from the current AndroidFlavor object and
-        // set this text on the number TextView
+        //set textview equal to artist name
         artistTextView.setText(currentAlbumArtists.getArtistName());
 
         // Return the whole list item layout (containing 2 TextViews and an ImageView)

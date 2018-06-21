@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Songs extends AppCompatActivity {
+    //variables from other activities
     String albumNameFromAlbums;
     String artistNameFromArtists;
 
@@ -21,41 +22,43 @@ public class Songs extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
 
-        albumNameFromAlbums= getIntent().getStringExtra("albumNameFromAlbums");
+        //gets extra's from the intents that launch this activity used to help determine displayed track list
+        albumNameFromAlbums = getIntent().getStringExtra("albumNameFromAlbums");
         artistNameFromArtists = getIntent().getStringExtra("artistsNameFromArtists");
 
-        // Find the View that shows the numbers category
+        // Find the artist button used for navigation
         Button byArtist = findViewById(R.id.byArtist);
 
-        // Set a click listener on that View
+        // Set a click listener
         byArtist.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers category is clicked on.
             @Override
             public void onClick(View view) {
-                // Create a new intent to open the {@link NumbersActivity}
+                // intent to launch the artists activity
                 Intent byArtistIntent = new Intent(Songs.this, Artists.class);
 
-                // Start the new activity
+                // Start artists
                 startActivity(byArtistIntent);
             }
         });
 
-        // Find the View that shows the family category
+        // Find the album button used for navigation
         Button byAlbum = findViewById(R.id.byAlbum);
 
-        // Set a click listener on that View
+        // Set a click listener
         byAlbum.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the family category is clicked on.
             @Override
             public void onClick(View view) {
-                // Create a new intent to open the {@link FamilyActivity}
+                // intent to launch the albums activity
                 Intent byAlbumIntent = new Intent(Songs.this, Albums.class);
 
-                // Start the new activity
+                // Start albums
                 startActivity(byAlbumIntent);
             }
         });
 
+        //array containing song information and relevant info
         final ArrayList<BySongs> trackList = new ArrayList<BySongs>();
 
         trackList.add(new BySongs("track 1", "band 1", "band 1 album", "artist_1_album"));
@@ -84,15 +87,19 @@ public class Songs extends AppCompatActivity {
         trackList.add(new BySongs("track 1", "band 12", "band 12 album", "artist_12_album"));
         trackList.add(new BySongs("track 2", "band 12", "band 12 album", "artist_12_album"));
 
-        if (albumNameFromAlbums != null){
+        /*This determines if the activity was called from one of the activities that pass intents which are used here
+        as parameters to alter the displayed songs list. If launched from main all will display. If launched from another
+        activity, the selected item gets passed here. Then the array list is iterated over removing all values that do not
+        contain the passed intent value effectively making it so only relevant songs to the selected album or artist are displayed
+         */
+        if (albumNameFromAlbums != null) {
             Iterator<BySongs> delete = trackList.iterator();
             while (delete.hasNext()) {
                 if (!delete.next().getAlbumName().equals(albumNameFromAlbums)) {
                     delete.remove();
                 }
             }
-        }
-        else if (artistNameFromArtists != null) {
+        } else if (artistNameFromArtists != null) {
             Iterator<BySongs> delete = trackList.iterator();
             while (delete.hasNext()) {
                 if (!delete.next().getArtistName().equals(artistNameFromArtists)) {
@@ -100,10 +107,13 @@ public class Songs extends AppCompatActivity {
                 }
             }
         }
+        //starts the adapter used to take the array information and populate it in the list view
         BySongsAdapter songsAdapter = new BySongsAdapter(this, trackList);
+        //finds the view and populates it using the adapter
         ListView listView = findViewById(R.id.linearList);
         listView.setAdapter(songsAdapter);
 
+        //click listener to determine selected song, retrieve information from it and pass it back to main/now playing
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -111,7 +121,7 @@ public class Songs extends AppCompatActivity {
                 String artistSelection = trackList.get(position).getArtistName();
                 String albumSelection = trackList.get(position).getAlbumName();
                 String songSelection = trackList.get(position).getSongName();
-                String albumCover = trackList.get(position).getmAlbumImage();
+                String albumCover = trackList.get(position).getAlbumImage();
                 boolean isPlaying = true;
 
                 Intent selectedSong = new Intent(Songs.this, MainActivity.class);

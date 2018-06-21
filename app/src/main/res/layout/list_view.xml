@@ -1,51 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/navBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/navBar"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
 
         <Button
+            android:id="@+id/byArtist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:text="By ARTISTS"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:textColor="@android:color/white"
-            android:id="@+id/byArtist"/>
+            android:text="@string/by_artist" />
 
         <Button
+            android:id="@+id/byAlbum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:text="By Album"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:textColor="@android:color/white"
-            android:id="@+id/byAlbum"/>
+            android:text="@string/by_album" />
 
         <Button
+            android:id="@+id/bySong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:text="By Song"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:textColor="@android:color/white"
-            android:id="@+id/bySong"/>
+            android:text="@string/by_song" />
 
     </LinearLayout>
 
-<ListView
-    android:id="@+id/linearList"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_below="@id/navBar"
-    android:paddingBottom="@dimen/activityPadding"
-    android:paddingLeft="@dimen/activityPadding"
-    android:paddingRight="@dimen/activityPadding"
-    android:paddingTop="@dimen/activityPadding">
-</ListView>
+    <ListView
+        android:id="@+id/linearList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/navBar"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activityPadding"
+        android:paddingLeft="@dimen/activityPadding"
+        android:paddingRight="@dimen/activityPadding"
+        android:paddingTop="@dimen/activityPadding"></ListView>
 </RelativeLayout>

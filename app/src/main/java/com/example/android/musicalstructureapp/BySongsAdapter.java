@@ -1,5 +1,6 @@
 package com.example.android.musicalstructureapp;
-
+//adapter to populate list view
+//the majority of this code was repurposed from the miwok lessons. All general informative comments were left alone.
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -26,33 +27,30 @@ public class BySongsAdapter extends ArrayAdapter<BySongs> {
     public View getView(int position, View convertView, ViewGroup parent) {
         // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
-        if(listItemView == null) {
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item_layout, parent, false);
         }
 
-        // Get the {@link AndroidFlavor} object located at this position in the list
+        // Get the current song in the given position
         BySongs currentSong = getItem(position);
 
-        // Find the TextView in the list_item.xml layout with the ID version_name
+        // Find the song text view
         TextView songTextView = listItemView.findViewById(R.id.song_name_text_view);
-        // Get the version name from the current AndroidFlavor object and
-        // set this text on the name TextView
+        // set the text view equal to the value of the current song in the given position
         songTextView.setText(currentSong.getSongName());
 
-        // Find the TextView in the list_item.xml layout with the ID version_number
+        // Find the album text view
         TextView albumTextView = listItemView.findViewById(R.id.album_name_text_view);
-        // Get the version number from the current AndroidFlavor object and
-        // set this text on the number TextView
+        // set text view equal to the album in the given position
         albumTextView.setText(currentSong.getAlbumName());
 
-        // Find the TextView in the list_item.xml layout with the ID version_number
+        // Find the artist text view
         TextView artistTextView = listItemView.findViewById(R.id.artist_name_text_view);
-        // Get the version number from the current AndroidFlavor object and
-        // set this text on the number TextView
+        // set text voew equal to the artist in the given position
         artistTextView.setText(currentSong.getArtistName());
 
-        // Return the whole list item layout (containing 2 TextViews and an ImageView)
+        // Return the whole list item layout (containing 3 TextViews)
         // so that it can be shown in the ListView
         return listItemView;
     }

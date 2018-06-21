@@ -1,98 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/homeNowPlaying"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/homeNowPlaying">
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/navBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/navBar"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
 
         <Button
+            android:id="@+id/byArtist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:text="By ARTISTS"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:textColor="@android:color/white"
-            android:id="@+id/byArtist"/>
+            android:text="@string/by_artist" />
 
         <Button
+            android:id="@+id/byAlbum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:text="By Album"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:textColor="@android:color/white"
-            android:id="@+id/byAlbum"/>
+            android:text="@string/by_album" />
 
         <Button
+            android:id="@+id/bySong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:text="By Song"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:textColor="@android:color/white"
-            android:id="@+id/bySong"/>
+            android:text="@string/by_song" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/nowPlayingInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/navBar"
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/albumImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/albumImage"
-            android:src="@drawable/start"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:src="@drawable/start" />
 
     </LinearLayout>
-
-    <ListView
-        android:id="@+id/linearList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/songControls"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/activityPadding"
-        android:paddingLeft="@dimen/activityPadding"
-        android:paddingRight="@dimen/activityPadding"
-        android:paddingTop="@dimen/activityPadding"></ListView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/songControls"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/paddingBottom"
+        android:paddingLeft="@dimen/paddingLeft"
+        android:paddingRight="@dimen/paddingLeft">
+
+        <TextView
+            android:id="@+id/song_name_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/textSize" />
+
+        <TextView
+            android:id="@+id/artist_name_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/textSize" />
+
+        <TextView
+            android:id="@+id/album_name_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/textSize" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/songControls"
-        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/previous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:layout_marginBottom="@dimen/buttonMarginBottom"
+            android:layout_marginEnd="@dimen/buttonMarginRight"
             android:background="@drawable/previous"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginRight="@dimen/buttonMarginRight" />
 
         <Button
             android:id="@+id/playPause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:layout_marginBottom="@dimen/buttonMarginBottom"
+            android:layout_marginEnd="@dimen/buttonMarginRight"
             android:background="@drawable/playpause"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginRight="@dimen/buttonMarginRight" />
+
         <Button
             android:id="@+id/skip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:background="@drawable/skip"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginBottom="@dimen/buttonMarginBottom" />
 
     </LinearLayout>
 </RelativeLayout>
