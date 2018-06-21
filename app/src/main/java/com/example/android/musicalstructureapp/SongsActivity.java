@@ -21,6 +21,7 @@ public class SongsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
+        setTitle("Songs Activity");
 
         //gets extra's from the intents that launch this activity used to help determine displayed track list
         albumNameFromAlbums = getIntent().getStringExtra("albumNameFromAlbums");
@@ -39,6 +40,7 @@ public class SongsActivity extends AppCompatActivity {
 
                 // Start artists
                 startActivity(byArtistIntent);
+                finish();
             }
         });
 
@@ -55,6 +57,7 @@ public class SongsActivity extends AppCompatActivity {
 
                 // Start albums
                 startActivity(byAlbumIntent);
+                finish();
             }
         });
 
@@ -132,6 +135,7 @@ public class SongsActivity extends AppCompatActivity {
                 selectedSong.putExtra("isPlaying", isPlaying);
                 Toast.makeText(SongsActivity.this, "Now Playing: " + songSelection + " by: " + artistSelection, Toast.LENGTH_SHORT).show();
                 startActivity(selectedSong);
+                finish();
             }
         });
     }

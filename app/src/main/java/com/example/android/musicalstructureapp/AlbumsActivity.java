@@ -18,6 +18,7 @@ public class AlbumsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grid_view);
+        setTitle("Album Activity");
 
         //These listeners are for the other two activities
 
@@ -34,6 +35,7 @@ public class AlbumsActivity extends AppCompatActivity {
 
                 // Start artists activity
                 startActivity(byArtistIntent);
+                finish();
             }
         });
 
@@ -50,6 +52,7 @@ public class AlbumsActivity extends AppCompatActivity {
 
                 // Start songs activity
                 startActivity(bySongIntent);
+                finish();
             }
         });
 
@@ -90,6 +93,7 @@ public class AlbumsActivity extends AppCompatActivity {
 
                 //starts songs activity passing selected album information
                 startActivity(albumSongs);
+                finish();
 
             }
         });

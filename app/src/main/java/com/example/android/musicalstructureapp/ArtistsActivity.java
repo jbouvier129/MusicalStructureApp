@@ -19,6 +19,7 @@ public class ArtistsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grid_view);
+        setTitle("Artists Activity");
 
         //listener activities to navigate to the other activities
         // Find album button for navigation
@@ -34,6 +35,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                 // Start albums activity
                 startActivity(byAlbumIntent);
+                finish();
             }
         });
 
@@ -50,6 +52,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                 // Start songs
                 startActivity(bySongIntent);
+                finish();
             }
         });
 
@@ -89,6 +92,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                 //start songs
                 startActivity(artistSongs);
+                finish();
             }
         });
 

@@ -33,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
+        if (selectedSong != null) {
+            setTitle("Now Playing");
+        }
+
         /*this determines if the activity was opened from the songs activity
         if it was selected song will not be null so it then changes the image view from the default one to the album image for
         the selected song and populates the nulled text views
@@ -62,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Starts artists
                 startActivity(byArtistIntent);
+                finish();
             }
         });
 
@@ -77,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Starts albums
                 startActivity(byAlbumIntent);
+                finish();
             }
         });
 
@@ -92,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Start songs
                 startActivity(bySongIntent);
+                finish();
             }
         });
         //finds previous button used for song controls
@@ -131,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Please select a song", Toast.LENGTH_SHORT).show();
                     Intent errorCatch = new Intent(MainActivity.this, SongsActivity.class);
                     startActivity(errorCatch);
+                    finish();
                 }
 
             }
